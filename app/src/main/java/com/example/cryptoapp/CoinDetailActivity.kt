@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_coin_detail.*
@@ -22,7 +23,7 @@ class CoinDetailActivity : AppCompatActivity() {
             return
         }
         val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL)
-        viewModel = ViewModelProviders.of(this)[CoinViewModel::class.java]
+        viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
         viewModel.getDetailInfo(fromSymbol).observe(this, Observer {
             tvPrice.text = it.price
             tvMinPrice.text = it.lowDay
