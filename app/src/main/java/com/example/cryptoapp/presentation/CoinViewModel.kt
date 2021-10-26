@@ -1,16 +1,19 @@
 package com.example.cryptoapp.presentation
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import com.example.cryptoapp.data.repository.CoinRepositoryImpl
 import com.example.cryptoapp.domain.GetCoinInfoListUseCase
 import com.example.cryptoapp.domain.GetCoinInfoUseCase
 import com.example.cryptoapp.domain.LoadDataUseCase
-import javax.inject.Inject
 
-class CoinViewModel @Inject constructor(
-    private val getCoinInfoListUseCase: GetCoinInfoListUseCase,
-    private val getCoinInfoUseCase: GetCoinInfoUseCase,
-    private val loadDataUseCase: LoadDataUseCase,
-) : ViewModel() {
+class CoinViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val repository = CoinRepositoryImpl(application)
+
+    private val getCoinInfoListUseCase = GetCoinInfoListUseCase(repository)
+    private val getCoinInfoUseCase = GetCoinInfoUseCase(repository)
+    private val loadDataUseCase = LoadDataUseCase(repository)
 
     val coinInfoList = getCoinInfoListUseCase()
 
