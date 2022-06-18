@@ -17,10 +17,10 @@ class CoinPriceListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_coin_prce_list)
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinInfoDto: CoinInfo) {
+            override fun onCoinClick(coinPriceInfo: CoinInfo) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
-                    coinInfoDto.fromSymbol
+                    coinPriceInfo.fromSymbol
                 )
                 startActivity(intent)
             }
@@ -28,7 +28,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         rvCoinPriceList.adapter = adapter
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
         viewModel.coinInfoList.observe(this) {
-            adapter.coinInfoDtoList = it
+            adapter.coinInfoList = it
         }
     }
 }

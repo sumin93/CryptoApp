@@ -8,6 +8,7 @@ import com.example.cryptoapp.domain.CoinInfo
 import com.google.gson.Gson
 
 class CoinMapper {
+
     fun mapDtoToDbModel(dto: CoinInfoDto) = CoinInfoDbModel(
         fromSymbol = dto.fromSymbol,
         toSymbol = dto.toSymbol,
@@ -39,7 +40,7 @@ class CoinMapper {
 
     fun mapNamesListToString(namesListDto: CoinNamesListDto): String {
         return namesListDto.names?.map {
-            it.coinInfo?.name
+            it.coinName?.name
         }?.joinToString(",") ?: ""
     }
 

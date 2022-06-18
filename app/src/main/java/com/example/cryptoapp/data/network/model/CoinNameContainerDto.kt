@@ -6,5 +6,5 @@ import com.google.gson.annotations.SerializedName
 data class CoinNameContainerDto (
     @SerializedName("CoinInfo")
     @Expose
-    val coinInfo: CoinNameDto? = null
+    val coinName: CoinNameDto? = null
 )

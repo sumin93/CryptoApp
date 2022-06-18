@@ -2,9 +2,7 @@ package com.example.cryptoapp.presentation
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.cryptoapp.data.network.model.CoinInfoDto
 import com.example.cryptoapp.data.repository.CoinRepositoryImpl
 import com.example.cryptoapp.domain.GetCoinInfoListUseCase
 import com.example.cryptoapp.domain.GetCoinInfoUseCase
@@ -28,5 +26,4 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
             loadDataUseCase()
         }
     }
-
 }

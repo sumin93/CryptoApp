@@ -16,6 +16,7 @@ class CoinRepositoryImpl(
 
     private val coinInfoDao = AppDatabase.getInstance(application).coinPriceInfoDao()
     private val apiService = ApiFactory.apiService
+
     private val mapper = CoinMapper()
 
     override fun getCoinInfoList(): LiveData<List<CoinInfo>> {

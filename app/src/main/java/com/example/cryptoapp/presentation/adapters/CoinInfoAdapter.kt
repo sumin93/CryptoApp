@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.item_coin_info.view.*
 class CoinInfoAdapter(private val context: Context) :
     RecyclerView.Adapter<CoinInfoAdapter.CoinInfoViewHolder>() {
 
-    var coinInfoDtoList: List<CoinInfo> = listOf()
+    var coinInfoList: List<CoinInfo> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -29,10 +29,10 @@ class CoinInfoAdapter(private val context: Context) :
         return CoinInfoViewHolder(view)
     }
 
-    override fun getItemCount() = coinInfoDtoList.size
+    override fun getItemCount() = coinInfoList.size
 
     override fun onBindViewHolder(holder: CoinInfoViewHolder, position: Int) {
-        val coin = coinInfoDtoList[position]
+        val coin = coinInfoList[position]
         with(holder) {
             with(coin) {
                 val symbolsTemplate = context.resources.getString(R.string.symbols_template)
@@ -57,6 +57,6 @@ class CoinInfoAdapter(private val context: Context) :
     }
 
     interface OnCoinClickListener {
-        fun onCoinClick(coinInfoDto: CoinInfo)
+        fun onCoinClick(coinPriceInfo: CoinInfo)
     }
 }
