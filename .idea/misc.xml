@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/work/AndroidStudioProjects/CryptoApp/app/src/main/res/layout/activity_coin_detail.xml" value="0.25885416666666666" />
+        <entry key="..\:/work/AndroidStudioProjects/CryptoApp/app/src/main/res/layout/actyvity_coin_detail.xml" value="0.25885416666666666" />
         <entry key="..\:/work/AndroidStudioProjects/CryptoApp/app/src/main/res/layout/item_coin_info.xml" value="0.18541666666666667" />
       </map>
     </option>
