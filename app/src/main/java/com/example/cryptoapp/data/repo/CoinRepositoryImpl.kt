@@ -9,6 +9,7 @@ import com.example.cryptoapp.data.network.ApiFactory
 import com.example.cryptoapp.domain.CoinInfo
 import com.example.cryptoapp.domain.CoinRepository
 import kotlinx.coroutines.delay
+import java.lang.Exception
 
 class CoinRepositoryImpl(private val application: Application) : CoinRepository {
 
@@ -30,15 +31,18 @@ class CoinRepositoryImpl(private val application: Application) : CoinRepository 
         }
     }
 
-    suspend override fun loadData() {
+    override suspend fun loadData() {
         while (true) {
-            val topCoins = apiService.getTopCoinsInfo(limit = 50)
-            val fromSymbols = mapper.mapNamesListToString(topCoins)
-            val jsonContainer = apiService.getFullPriceList(fSyms = fromSymbols)
-            val listInfoDto = mapper.mapJsonContainerToListInfoDto(jsonContainer)
-            dao.insertPriceList(listInfoDto.map {
-                mapper.mapDtoToDbModel(it)
-            })
+            try {
+                val topCoins = apiService.getTopCoinsInfo(limit = 50)
+                val fromSymbols = mapper.mapNamesListToString(topCoins)
+                val jsonContainer = apiService.getFullPriceList(fSyms = fromSymbols)
+                val listInfoDto = mapper.mapJsonContainerToListInfoDto(jsonContainer)
+                dao.insertPriceList(listInfoDto.map {
+                    mapper.mapDtoToDbModel(it)
+                })
+            } catch (e: Exception) {
+            }
             delay(10000)
         }
     }
