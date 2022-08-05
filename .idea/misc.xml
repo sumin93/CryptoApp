@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.21302083333333333" />
+        <entry key="app/src/main/res/layout-land/activity_coin_price_list.xml" value="0.30070546737213405" />
         <entry key="app/src/main/res/layout/activity_coin_detail.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/activity_coin_price_list.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_coin_detail.xml" value="0.35520833333333335" />
