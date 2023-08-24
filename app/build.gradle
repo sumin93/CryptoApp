@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.example.cryptoapp"
         minSdk 19
-        targetSdk 31
+        targetSdk 34Lj,
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
