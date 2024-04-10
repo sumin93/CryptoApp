@@ -9,9 +9,8 @@ import com.google.gson.Gson
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
-import javax.inject.Inject
 
-class CoinMapper @Inject constructor() {
+class CoinMapper {
 
     fun mapDtoToDbModel(dto: CoinInfoDto) = CoinInfoDbModel(
         fromSymbol = dto.fromSymbol,
