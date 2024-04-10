@@ -7,13 +7,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdk = 34
     defaultConfig {
-        applicationId "com.example.cryptoapp"
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        applicationId = "com.example.cryptoapp"
+        minSdk = 19
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {

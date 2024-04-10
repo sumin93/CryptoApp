@@ -20,7 +20,7 @@ class CoinDetailActivity : AppCompatActivity() {
             finish()
             return
         }
-        val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL)
+        val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL) ?: ""
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
         viewModel.getDetailInfo(fromSymbol).observe(this, Observer {
             tvPrice.text = it.price
