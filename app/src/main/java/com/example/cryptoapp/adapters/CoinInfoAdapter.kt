@@ -17,7 +17,6 @@ class CoinInfoAdapter(private val context: Context) :
     var coinInfoList: List<CoinPriceInfo> = listOf()
         set(value) {
             field = value
-            notifyDataSetChanged()
         }
 
     var onCoinClickListener: OnCoinClickListener? = null
