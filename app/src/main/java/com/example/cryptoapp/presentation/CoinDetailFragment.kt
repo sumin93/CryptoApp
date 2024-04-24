@@ -20,7 +20,6 @@ class CoinDetailFragment : Fragment() {
         get() {
             return _binding ?: throw RuntimeException("FragmentCoinDetailBinding == null")
         }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,7 +28,6 @@ class CoinDetailFragment : Fragment() {
         _binding = FragmentCoinDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fromSymbol = requireArguments().getString(FROM_SYMBOL) ?: ""
@@ -45,7 +43,6 @@ class CoinDetailFragment : Fragment() {
             Picasso.get().load(it.imageUrl).into(binding.ivLogoCoin)
         })
     }
-
     companion object {
         private const val FROM_SYMBOL = "fSym"
         fun newInstance(fromSymbol: String): Fragment {

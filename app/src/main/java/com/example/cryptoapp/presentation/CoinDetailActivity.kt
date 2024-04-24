@@ -27,7 +27,6 @@ class CoinDetailActivity : AppCompatActivity() {
             launchCoinDetailFragment(fragment)
         }
     }
-
     private fun launchCoinDetailFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
