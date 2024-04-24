@@ -1,4 +1,4 @@
-package com.example.cryptoapp
+package com.example.cryptoapp.presentation
 
 import android.content.Context
 import android.content.Intent
