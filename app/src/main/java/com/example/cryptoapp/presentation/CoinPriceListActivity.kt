@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.cryptoapp.presentation.adapters.CoinInfoAdapter
 import com.example.cryptoapp.databinding.ActivityCoinPrceListBinding
-import com.example.cryptoapp.data.network.model.CoinInfoDto
 import com.example.cryptoapp.domain.CoinInfo
 
 class CoinPriceListActivity : AppCompatActivity() {
@@ -20,19 +19,18 @@ class CoinPriceListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val adapter = CoinInfoAdapter(this)
-        adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinInfo) {
-                val intent = CoinDetailActivity.newIntent(
-                    this@CoinPriceListActivity,
-                    coinPriceInfo.fromSymbol
-                )
-                startActivity(intent)
-            }
+        adapter.onCoinClickListener = {
+            val intent = CoinDetailActivity.newIntent(
+                this@CoinPriceListActivity,
+                it.fromSymbol
+            )
+            startActivity(intent)
         }
         binding.rvCoinPriceList.adapter = adapter
+        binding.rvCoinPriceList.itemAnimator = null
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
         viewModel.coinInfoList.observe(this, Observer {
-            adapter.coinInfoList = it
+            adapter.submitList(it)
         })
     }
 }
