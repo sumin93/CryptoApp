@@ -57,22 +57,18 @@ dependencies {
     implementation (libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
 
-    //RxJava
-    implementation(libs.androidx.room.rxjava3) // for Room
-    implementation (libs.rxandroid)
-    implementation (libs.rxjava)
-
     //Retrofit
     implementation (libs.retrofit)
     implementation(libs.converter.gson)
-    implementation (libs.adapter.rxjava3)
 
     //Picasso
     implementation (libs.picasso)
-
 
     //coroutines
     implementation (libs.kotlinx.coroutines.android)
     //For ViewModelScope
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
+
+    //Work Manager
+    implementation(libs.androidx.work.runtime.ktx)
 }
