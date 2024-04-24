@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("org.jetbrains.kotlin.kapt") version "1.9.23"
+    //id("org.jetbrains.kotlin.kapt") version "1.9.23"
     alias(libs.plugins.ksp)
 }
 
@@ -29,7 +29,7 @@ android {
         }
     }
     buildFeatures{
-        dataBinding =  true
+        //dataBinding =  true
         viewBinding = true
     }
     compileOptions {
@@ -56,6 +56,20 @@ dependencies {
     implementation (libs.androidx.room.runtime)
     implementation (libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
+
+    //RxJava
+    implementation(libs.androidx.room.rxjava3) // for Room
+    implementation (libs.rxandroid)
+    implementation (libs.rxjava)
+
+    //Retrofit
+    implementation (libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation (libs.adapter.rxjava3)
+
+    //Picasso
+    implementation (libs.picasso)
+
 
     //coroutines
     implementation (libs.kotlinx.coroutines.android)
