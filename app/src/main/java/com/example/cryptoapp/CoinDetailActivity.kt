@@ -3,11 +3,12 @@ package com.example.cryptoapp
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_coin_detail.*
 
 class CoinDetailActivity : AppCompatActivity() {
 
@@ -22,6 +23,16 @@ class CoinDetailActivity : AppCompatActivity() {
         }
         val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL) ?: ""
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
+
+        val tvPrice = findViewById<TextView>(R.id.tvPrice)
+        val tvMinPrice = findViewById<TextView>(R.id.tvMinPrice)
+        val tvMaxPrice = findViewById<TextView>(R.id.tvMaxPrice)
+        val tvLastMarket = findViewById<TextView>(R.id.tvLastMarket)
+        val tvLastUpdate = findViewById<TextView>(R.id.tvLastUpdate)
+        val tvFromSymbol = findViewById<TextView>(R.id.tvFromSymbol)
+        val tvToSymbol = findViewById<TextView>(R.id.tvToSymbol)
+        val ivLogoCoin = findViewById<ImageView>(R.id.ivLogoCoin)
+
         viewModel.getDetailInfo(fromSymbol).observe(this, Observer {
             tvPrice.text = it.price
             tvMinPrice.text = it.lowDay
