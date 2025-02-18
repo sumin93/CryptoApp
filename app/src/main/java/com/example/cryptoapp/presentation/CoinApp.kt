@@ -14,15 +14,13 @@ class CoinApp : Application(), Configuration.Provider {
         DaggerApplicationComponent.factory().create(this)
     }
 
-    override fun getWorkManagerConfiguration(): Configuration {
-        return Configuration.Builder()
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
             .setWorkerFactory(
                 RefreshDataWorkerFactory(
                     AppDatabase.getInstance(this).coinPriceInfoDao(),
                     ApiFactory.apiService,
                     CoinMapper()
                 )
-            )
-            .build()
-    }
+            ).build()
 }
